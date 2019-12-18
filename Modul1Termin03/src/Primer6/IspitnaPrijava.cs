@@ -5,22 +5,22 @@ namespace Modul1Termin03.Primer6
 {
     class IspitnaPrijava
     {
-        public Student student;
-        public Predmet predmet;
-        public IspitniRok ispitniRok;
+        public Student Student;
+        public Predmet Predmet;
+        public IspitniRok IspitniRok;
 
-        public int studentID;
-        public int predmetID;
-        public int ispitniRokID;
-        public int brojBodovaTeorija;
-        public int brojBodovaZadaci;
-        public int ocena;
+        public int StudentID;
+        public int PredmetID;
+        public int IspitniRokID;
+        public int BrojBodovaTeorija;
+        public int BrojBodovaZadaci;
+        public int Ocena;
 
         public IspitnaPrijava()
         {
-            student = new Student();
-            predmet = new Predmet();
-            ispitniRok = new IspitniRok();
+            Student = new Student();
+            Predmet = new Predmet();
+            IspitniRok = new IspitniRok();
         }
 
         public IspitnaPrijava(string numbers)
@@ -34,57 +34,57 @@ namespace Modul1Termin03.Primer6
             }
             else
             {
-                studentID = Int32.Parse(manyID[0]);
-                predmetID = Int32.Parse(manyID[1]);
-                ispitniRokID = Int32.Parse(manyID[2]);
-                brojBodovaTeorija = Int32.Parse(manyID[3]);
-                brojBodovaZadaci = Int32.Parse(manyID[4]);
+                StudentID = Int32.Parse(manyID[0]);
+                PredmetID = Int32.Parse(manyID[1]);
+                IspitniRokID = Int32.Parse(manyID[2]);
+                BrojBodovaTeorija = Int32.Parse(manyID[3]);
+                BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
-                Student FindMe = MainClass1.sviStudenti.Where(x => x.Id == studentID).FirstOrDefault();
-                Predmet FindMe2 = MainClass1.listaPredmeta.Where(x => x.Id == predmetID).FirstOrDefault();
-                IspitniRok FindMe3 = MainClass1.listaIspitnihRokova.Where(x => x.id == ispitniRokID).FirstOrDefault();
+                Student FindMe = MainClass1.sviStudenti.Where(x => x.Id == StudentID).FirstOrDefault();
+                Predmet FindMe2 = MainClass1.listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
+                IspitniRok FindMe3 = MainClass1.listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
 
-                student = FindMe;
-                predmet = FindMe2;
-                ispitniRok = FindMe3;
+                Student = FindMe;
+                Predmet = FindMe2;
+                IspitniRok = FindMe3;
             }
         }
 
         public IspitnaPrijava(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija)
         {
-            this.student = student;
-            this.predmet = predmet;
-            this.ispitniRok = ispitniRok;
-            this.brojBodovaTeorija = brojBodovaTeorija;
-            this.brojBodovaZadaci = brojBodovaZadaci;
+            this.Student = student;
+            this.Predmet = predmet;
+            this.IspitniRok = ispitniRok;
+            this.BrojBodovaTeorija = brojBodovaTeorija;
+            this.BrojBodovaZadaci = brojBodovaZadaci;
         }
 
         public void IzracunajOcenu()
         {
-            int zbirBodova = (brojBodovaTeorija + brojBodovaZadaci);
+            int zbirBodova = (BrojBodovaTeorija + BrojBodovaZadaci);
             if (zbirBodova <= 50)
             {
-                ocena = 5;
+                Ocena = 5;
             }
             else if (zbirBodova < 65 && zbirBodova > 50)
             {
-                ocena = 6;
+                Ocena = 6;
             }
             else if (zbirBodova < 75 && zbirBodova > 65)
             {
-                ocena = 7;
+                Ocena = 7;
             }
             else if (zbirBodova < 85 && zbirBodova > 75)
             {
-                ocena = 8;
+                Ocena = 8;
             }
             else if (zbirBodova < 95 && zbirBodova > 85)
             {
-                ocena = 9;
+                Ocena = 9;
             }
-            else if (zbirBodova < 100 && zbirBodova > 95)
+            else if (zbirBodova < 175)
             {
-                ocena = 10;
+                Ocena = 10;
             }
         }
 

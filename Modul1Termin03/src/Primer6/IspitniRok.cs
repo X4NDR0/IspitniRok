@@ -4,10 +4,10 @@ namespace Modul1Termin03.Primer6
 {
     class IspitniRok
     {
-        public int id;
-        public string naziv;
-        public DateTime pocetak;
-        public DateTime kraj;
+        public int ID;
+        public string Naziv;
+        public DateTime Pocetak;
+        public DateTime Kraj;
 
         public IspitniRok()
         {
@@ -24,10 +24,10 @@ namespace Modul1Termin03.Primer6
             }
             else
             {
-                id = Int32.Parse(splitter[0]);
-                naziv = splitter[1];
-                pocetak = DateTime.Parse(splitter[2]);
-                kraj = DateTime.Parse(splitter[3]);
+                ID = Int32.Parse(splitter[0]);
+                Naziv = splitter[1];
+                Pocetak = DateTime.Parse(splitter[2]);
+                Kraj = DateTime.Parse(splitter[3]);
             }
         }
     }

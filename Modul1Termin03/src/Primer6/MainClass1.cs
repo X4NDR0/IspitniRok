@@ -38,7 +38,7 @@ namespace Modul1Termin03.Primer6
             Console.WriteLine("Izracuvanja proseka");
             foreach (IspitnaPrijava ispitnePrijave2 in listaIspitnihPrijava)
             {
-                IzracunajProsek(ispitnePrijave2.brojBodovaZadaci,ispitnePrijave2.brojBodovaTeorija);
+                IzracunajProsek(ispitnePrijave2.BrojBodovaZadaci,ispitnePrijave2.BrojBodovaTeorija);
             }
 
             Console.WriteLine("******************************");
@@ -72,7 +72,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitniRok ispitniRok in lista)
             {
-                Console.WriteLine("ID:" + ispitniRok.id + " Naziv:" + ispitniRok.naziv + " Pocetak:" + ispitniRok.pocetak + " Kraj:" + ispitniRok.kraj);
+                Console.WriteLine("ID:" + ispitniRok.ID + " Naziv:" + ispitniRok.Naziv + " Pocetak:" + ispitniRok.Pocetak + " Kraj:" + ispitniRok.Kraj);
             }
         }
 
