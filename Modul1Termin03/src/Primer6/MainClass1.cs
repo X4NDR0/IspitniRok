@@ -106,5 +106,13 @@ namespace Modul1Termin03.Primer6
                 Console.WriteLine("ID:" + ispitniRok.id + " Naziv:" + ispitniRok.naziv + " Pocetak:" + ispitniRok.pocetak + " Kraj:" + ispitniRok.kraj);
             }
         }
+
+        public static void IspisiPredmete(List<Predmet> lista)
+        {
+            foreach (Predmet predmet in lista)
+            {
+                Console.WriteLine("ID:" + predmet.Id + " Naziv:" + predmet.Naziv);
+            }
+        }
     }
 }
