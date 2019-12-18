@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Modul1Termin03.Utility;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Principal;
 
 namespace Modul1Termin03.Primer6
 {
@@ -10,8 +12,11 @@ namespace Modul1Termin03.Primer6
         public static List<IspitniRok> listaIspitnihRokova = new List<IspitniRok>();
         public static List<IspitnaPrijava> listaIspitnihPrijava = new List<IspitnaPrijava>();
         public static List<Predmet> listaPredmeta = new List<Predmet>();
+        public static string filePath;
         public static void Main(String[] args)
         {
+            CheckPerson();
+
             LoadStudents();
             LoadPredmete();
             LoadIspitneRokove();
@@ -23,6 +28,9 @@ namespace Modul1Termin03.Primer6
             Console.WriteLine("Ispis ispitnih rokova:");
             IspisiIspite(listaIspitnihRokova);
 
+            Console.WriteLine("Ispis predmeta:");
+            IspisiPredmete(listaPredmeta);
+
             Console.WriteLine("Izracunavanje ocene");
 
             foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
@@ -33,7 +41,7 @@ namespace Modul1Termin03.Primer6
             Console.WriteLine("Izracuvanja proseka");
             foreach (IspitnaPrijava ispitnePrijave2 in listaIspitnihPrijava)
             {
-                IzracunajProsek(ispitnePrijave2.BrojBodovaZadaci,ispitnePrijave2.BrojBodovaTeorija);
+                IzracunajProsek(ispitnePrijave2.BrojBodovaZadaci, ispitnePrijave2.BrojBodovaTeorija);
             }
 
             Console.WriteLine("******************************");
@@ -81,7 +89,7 @@ namespace Modul1Termin03.Primer6
 
         public static void LoadStudents()
         {
-            StreamReader srStudent = new StreamReader("C:\\Users\\XANDRO\\Desktop\\Modul1\\Termin03\\data\\studenti.csv");
+            StreamReader srStudent = new StreamReader(filePath + "studenti.csv");
             string studenti = srStudent.ReadToEnd();
             string[] studentSplit = studenti.Split('\n');
 
@@ -96,7 +104,7 @@ namespace Modul1Termin03.Primer6
 
         public static void LoadPredmete()
         {
-            StreamReader sr = new StreamReader("C:\\Users\\XANDRO\\Desktop\\Modul1\\Termin03\\data\\predmeti.csv");
+            StreamReader sr = new StreamReader(filePath + "predmeti.csv");
             string predmeti = sr.ReadToEnd();
             string[] predmetSplit = predmeti.Split('\n');
 
@@ -111,7 +119,7 @@ namespace Modul1Termin03.Primer6
 
         public static void LoadIspitnePrijave()
         {
-            StreamReader srip = new StreamReader("C:\\Users\\XANDRO\\Desktop\\Modul1\\Termin03\\data\\ispitne_prijave.csv");
+            StreamReader srip = new StreamReader(filePath + "ispitne_prijave.csv");
             string ispitnePrijave = srip.ReadToEnd();
             string[] ispitnePrij = ispitnePrijave.Split('\n');
 
@@ -123,10 +131,10 @@ namespace Modul1Termin03.Primer6
                 listaIspitnihPrijava.Add(ispitnePrijaveObject);
             }
         }
-        
+
         public static void LoadIspitneRokove()
         {
-            StreamReader srIr = new StreamReader("C:\\Users\\XANDRO\\Desktop\\Modul1\\Termin03\\data\\ispitni_rokovi.csv");
+            StreamReader srIr = new StreamReader(filePath + "ispitni_rokovi.csv");
             string ispitniRokovi = srIr.ReadToEnd();
 
             string[] ispitniRok = ispitniRokovi.Split('\n');
@@ -137,6 +145,16 @@ namespace Modul1Termin03.Primer6
                 ispitniRokObject = new IspitniRok(ispitniRok[i]);
                 listaIspitnihRokova.Add(ispitniRokObject);
             }
+        }
+
+        private static void CheckPerson()
+        {
+            if (WindowsIdentity.GetCurrent().Name.StartsWith("MILOSH"))
+            {
+                filePath = AppConfig.Milos;
+                return;
+            }
+            filePath = AppConfig.Aleksandar;
         }
     }
 }

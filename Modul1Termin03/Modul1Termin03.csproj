@@ -82,6 +82,7 @@
     <Compile Include="src\Primer7\MainClass1.cs" />
     <Compile Include="src\Primer7\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\AppConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

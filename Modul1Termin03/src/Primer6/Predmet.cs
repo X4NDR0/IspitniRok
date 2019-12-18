@@ -34,13 +34,7 @@ namespace Modul1Termin03.Primer6
 
         public Predmet(String tekst)
         {
-            StreamReader sr = new StreamReader("C:\\Users\\XANDRO\\Desktop\\Modul1\\Termin03\\data\\predmeti.csv");
-
-            string predmeti = sr.ReadToEnd();
-
-            string[] predmet2 = predmeti.Split('\n');
-
-            String[] tokeni = predmet2[0].Split(',');
+            String[] tokeni = tekst.Split(',');
 
             if (tokeni.Length != 2)
             {

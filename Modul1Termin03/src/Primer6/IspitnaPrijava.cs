@@ -66,23 +66,23 @@ namespace Modul1Termin03.Primer6
             {
                 Ocena = 5;
             }
-            else if (zbirBodova < 125 && zbirBodova > 100)
+            else if (zbirBodova >= 100 && zbirBodova < 125)
             {
                 Ocena = 6;
             }
-            else if (zbirBodova < 130 && zbirBodova > 125)
+            else if (zbirBodova >= 125 && zbirBodova < 135)
             {
                 Ocena = 7;
             }
-            else if (zbirBodova < 155 && zbirBodova > 145)
+            else if (zbirBodova >= 135 && zbirBodova < 155)
             {
                 Ocena = 8;
             }
-            else if (zbirBodova < 170 && zbirBodova > 155)
+            else if (zbirBodova >= 155 && zbirBodova < 170)
             {
                 Ocena = 9;
             }
-            else if (zbirBodova < 175)
+            else if (zbirBodova >= 175)
             {
                 Ocena = 10;
             }
