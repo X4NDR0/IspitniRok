@@ -33,14 +33,13 @@ namespace Modul1Termin03.Primer6
                 Predmet FindMe2 = MainClass1.listaPredmeta.Where(x => x.Id == predmetID).FirstOrDefault();
                 IspitniRok FindMe3 = MainClass1.listaIspitnihRokova.Where(x => x.id == ispitniRokID).FirstOrDefault();
 
-                //Adding
                 student = FindMe;
                 predmet = FindMe2;
                 ispitniRok = FindMe3;
             }
         }
 
-        public IspitnePrijave(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija,int ocena)
+        public IspitnePrijave(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija, int ocena)
         {
             this.student = student;
             this.predmet = predmet;

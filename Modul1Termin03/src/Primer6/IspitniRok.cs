@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Modul1Termin03.Primer6
 {
@@ -21,7 +17,8 @@ namespace Modul1Termin03.Primer6
             {
                 Console.WriteLine("I'm can't read the file,sorry.");
                 Environment.Exit(0);
-            }else
+            }
+            else
             {
                 id = Int32.Parse(splitter[0]);
                 naziv = splitter[1];
@@ -34,5 +31,47 @@ namespace Modul1Termin03.Primer6
         public string naziv;
         public DateTime pocetak;
         public DateTime kraj;
+
+        public static void IzracunajOcenu(int zadaci, int teorija)
+        {
+            int rezultat = (zadaci + teorija);
+            if (rezultat <= 50)
+            {
+                Console.WriteLine("5");
+                IspitnePrijave.ocenaHelp = 5;
+            }
+            else if (rezultat < 65 && rezultat > 50)
+            {
+                Console.WriteLine("6");
+                IspitnePrijave.ocenaHelp = 6;
+            }
+            else if (rezultat < 75 && rezultat > 65)
+            {
+                Console.WriteLine("7");
+                IspitnePrijave.ocenaHelp = 7;
+            }
+            else if (rezultat < 85 && rezultat > 75)
+            {
+                Console.WriteLine("8");
+                IspitnePrijave.ocenaHelp = 8;
+            }
+            else if (rezultat < 95 && rezultat > 85)
+            {
+                Console.WriteLine("9");
+                IspitnePrijave.ocenaHelp = 9;
+            }
+            else if (rezultat < 100 && rezultat > 95)
+            {
+                Console.WriteLine("10");
+                IspitnePrijave.ocenaHelp = 10;
+            }
+        }
+
+        public static void IzracunajProsek(int teorija, int zadaci)
+        {
+            double rezultat = teorija + zadaci;
+            double help = rezultat / 2;
+            Console.WriteLine("Prosecan broj bodova je:" + help);
+        }
     }
 }

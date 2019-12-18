@@ -7,29 +7,21 @@ using System.Threading.Tasks;
 
 namespace Modul1Termin03.Primer6
 {
-    //klasa
     class Student
     {
-        //atributi tj property-i
         public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Grad { get; set; }
         public string Indeks { get; set; }
 
-        //predmete koje pohađa student
         public List<Predmet> Predmeti { get; set; }
 
-
-        //konstruktori
-
-        // konstruktor bez parametra
         public Student()
         {
             Predmeti = new List<Predmet>();
         }
 
-        //konstruktor sa vise parametara
         public Student(int id, String ime, String prezime, String grad, String indeks)
         {
             this.Id = id;
@@ -49,17 +41,13 @@ namespace Modul1Termin03.Primer6
             this.Predmeti = predmeti;
         }
 
-        //konstruktor koji popunjava podatke na osnovu očitanog teksta iz fajla studenti.csv
         public Student(String tekst)
         {
             String[] tokeni = tekst.Split(',');
-            //npr. 		1,E2 01/2016,Jevrić,Srđan,Loznica
-            //tokeni 	0		1		2		3			4
 
             if (tokeni.Length != 5)
             {
                 Console.WriteLine("Greska pri ocitavanju studenta " + tekst);
-                //izlazak iz aplikacije
                 Environment.Exit(0);
             }
 
@@ -70,7 +58,6 @@ namespace Modul1Termin03.Primer6
             Grad = tokeni[4];
         }
 
-        //metode
         public string PreuzmiTekstualnuReprezentacijuKlase()
         {
             String ispis = "Student sa id " + Id + " čije je ime i prezime "
@@ -94,7 +81,6 @@ namespace Modul1Termin03.Primer6
             return sb.ToString();
         }
 
-        //dva objekta su ista ako imaju isti id
         public bool Isti(Student pr)
         {
             bool isti = false;
