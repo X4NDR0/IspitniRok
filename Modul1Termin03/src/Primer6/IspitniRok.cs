@@ -32,7 +32,7 @@ namespace Modul1Termin03.Primer6
         public DateTime pocetak;
         public DateTime kraj;
 
-        public static void IzracunajOcenu(int zadaci, int teorija)
+        public void IzracunajOcenu(int zadaci, int teorija)
         {
             int rezultat = (zadaci + teorija);
             if (rezultat <= 50)
@@ -65,13 +65,6 @@ namespace Modul1Termin03.Primer6
                 Console.WriteLine("10");
                 IspitnePrijave.ocenaHelp = 10;
             }
-        }
-
-        public static void IzracunajProsek(int teorija, int zadaci)
-        {
-            double rezultat = teorija + zadaci;
-            double help = rezultat / 2;
-            Console.WriteLine("Prosecan broj bodova je:" + help);
         }
     }
 }
