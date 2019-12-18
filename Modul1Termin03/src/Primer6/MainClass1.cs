@@ -8,7 +8,7 @@ namespace Modul1Termin03.Primer6
     {
         public static List<Student> sviStudenti = new List<Student>();
         public static List<IspitniRok> listaIspitnihRokova = new List<IspitniRok>();
-        public static List<IspitnePrijave> listaIspitnihPrijava = new List<IspitnePrijave>();
+        public static List<IspitnaPrijava> listaIspitnihPrijava = new List<IspitnaPrijava>();
         public static List<Predmet> listaPredmeta = new List<Predmet>();
         public static void Main(String[] args)
         {
@@ -25,13 +25,18 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine("Izracunavanje ocene");
 
-            foreach (IspitnePrijave ispitnePrijave1 in listaIspitnihPrijava)
+            //foreach (IspitnaPrijava ispitnePrijave1 in listaIspitnihPrijava)
+            //{
+            //    IspitniRok.IzracunajOcenu(ispitnePrijave1.brojBodovaTeorija, ispitnePrijave1.brojBodovaZadaci);
+            //}
+
+            foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
-                IspitniRok.IzracunajOcenu(ispitnePrijave1.brojBodovaTeorija, ispitnePrijave1.brojBodovaZadaci);
+                ispitnaPrijava.IzracunajOcenu();
             }
 
             Console.WriteLine("Izracuvanja proseka");
-            foreach (IspitnePrijave ispitnePrijave2 in listaIspitnihPrijava)
+            foreach (IspitnaPrijava ispitnePrijave2 in listaIspitnihPrijava)
             {
                 IzracunajProsek(ispitnePrijave2.brojBodovaZadaci,ispitnePrijave2.brojBodovaTeorija);
             }
@@ -115,11 +120,11 @@ namespace Modul1Termin03.Primer6
             string ispitnePrijave = srip.ReadToEnd();
             string[] ispitnePrij = ispitnePrijave.Split('\n');
 
-            IspitnePrijave ispitnePrijaveObject = null;
+            IspitnaPrijava ispitnePrijaveObject = null;
 
             for (int i = 0; i < ispitnePrij.Length; i++)
             {
-                ispitnePrijaveObject = new IspitnePrijave(ispitnePrij[i]);
+                ispitnePrijaveObject = new IspitnaPrijava(ispitnePrij[i]);
                 listaIspitnihPrijava.Add(ispitnePrijaveObject);
             }
         }

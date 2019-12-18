@@ -3,16 +3,27 @@ using System.Linq;
 
 namespace Modul1Termin03.Primer6
 {
-    class IspitnePrijave
+    class IspitnaPrijava
     {
-        public IspitnePrijave()
+        public Student student;
+        public Predmet predmet;
+        public IspitniRok ispitniRok;
+
+        public int studentID;
+        public int predmetID;
+        public int ispitniRokID;
+        public int brojBodovaTeorija;
+        public int brojBodovaZadaci;
+        public int ocena;
+
+        public IspitnaPrijava()
         {
             student = new Student();
             predmet = new Predmet();
             ispitniRok = new IspitniRok();
         }
 
-        public IspitnePrijave(string numbers)
+        public IspitnaPrijava(string numbers)
         {
             string[] manyID = numbers.Split(',');
 
@@ -39,26 +50,43 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public IspitnePrijave(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija, int ocena)
+        public IspitnaPrijava(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija)
         {
             this.student = student;
             this.predmet = predmet;
             this.ispitniRok = ispitniRok;
             this.brojBodovaTeorija = brojBodovaTeorija;
             this.brojBodovaZadaci = brojBodovaZadaci;
-            this.ocena = ocenaHelp;
         }
 
-        public Student student;
-        public Predmet predmet;
-        public IspitniRok ispitniRok;
+        public void IzracunajOcenu()
+        {
+            int zbirBodova = (brojBodovaTeorija + brojBodovaZadaci);
+            if (zbirBodova <= 50)
+            {
+                ocena = 5;
+            }
+            else if (zbirBodova < 65 && zbirBodova > 50)
+            {
+                ocena = 6;
+            }
+            else if (zbirBodova < 75 && zbirBodova > 65)
+            {
+                ocena = 7;
+            }
+            else if (zbirBodova < 85 && zbirBodova > 75)
+            {
+                ocena = 8;
+            }
+            else if (zbirBodova < 95 && zbirBodova > 85)
+            {
+                ocena = 9;
+            }
+            else if (zbirBodova < 100 && zbirBodova > 95)
+            {
+                ocena = 10;
+            }
+        }
 
-        public int studentID;
-        public int predmetID;
-        public int ispitniRokID;
-        public int brojBodovaTeorija;
-        public int brojBodovaZadaci;
-        public int ocena;
-        public static int ocenaHelp;
     }
 }

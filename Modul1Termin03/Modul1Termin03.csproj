@@ -74,7 +74,7 @@
     <Compile Include="src\Primer4\Student.cs" />
     <Compile Include="src\Primer5\MainClass1.cs" />
     <Compile Include="src\Primer5\Student.cs" />
-    <Compile Include="src\Primer6\IspitnePrijave.cs" />
+    <Compile Include="src\Primer6\IspitnaPrijava.cs" />
     <Compile Include="src\Primer6\IspitniRok.cs" />
     <Compile Include="src\Primer6\MainClass1.cs" />
     <Compile Include="src\Primer6\Predmet.cs" />
