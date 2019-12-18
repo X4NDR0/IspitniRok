@@ -1,11 +1,6 @@
-﻿using Modul1Termin03.Primer6;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace Modul1Termin03.Primer6
 {
@@ -73,15 +68,16 @@ namespace Modul1Termin03.Primer6
             IspisiIspite(listaIspitnihRokova);
 
             Console.WriteLine("Izracunavanje ocene");
-            for (int i = 0; i < listaIspitnihPrijava.Count; i++)
+
+            foreach (IspitnePrijave ispitnePrijave1 in listaIspitnihPrijava)
             {
-                IspitniRok.IzracunajOcenu(listaIspitnihPrijava[i].brojBodovaTeorija, listaIspitnihPrijava[i].brojBodovaZadaci);
+                IspitniRok.IzracunajOcenu(ispitnePrijave1.brojBodovaTeorija, ispitnePrijave1.brojBodovaZadaci);
             }
 
             Console.WriteLine("Izracuvanja proseka");
-            for (int i = 0; i < listaIspitnihPrijava.Count; i++)
+            foreach (IspitnePrijave ispitnePrijave2 in listaIspitnihPrijava)
             {
-                IspitniRok.IzracunajProsek(listaIspitnihPrijava[i].brojBodovaTeorija, listaIspitnihPrijava[i].brojBodovaZadaci);
+                IspitniRok.IzracunajProsek(ispitnePrijave2.brojBodovaZadaci,ispitnePrijave2.brojBodovaTeorija);
             }
 
             Console.WriteLine("******************************");
