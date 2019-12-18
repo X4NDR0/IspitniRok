@@ -25,11 +25,6 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine("Izracunavanje ocene");
 
-            //foreach (IspitnaPrijava ispitnePrijave1 in listaIspitnihPrijava)
-            //{
-            //    IspitniRok.IzracunajOcenu(ispitnePrijave1.brojBodovaTeorija, ispitnePrijave1.brojBodovaZadaci);
-            //}
-
             foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
                 ispitnaPrijava.IzracunajOcenu();

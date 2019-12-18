@@ -62,23 +62,23 @@ namespace Modul1Termin03.Primer6
         public void IzracunajOcenu()
         {
             int zbirBodova = (BrojBodovaTeorija + BrojBodovaZadaci);
-            if (zbirBodova <= 50)
+            if (zbirBodova < 100)
             {
                 Ocena = 5;
             }
-            else if (zbirBodova < 65 && zbirBodova > 50)
+            else if (zbirBodova < 125 && zbirBodova > 100)
             {
                 Ocena = 6;
             }
-            else if (zbirBodova < 75 && zbirBodova > 65)
+            else if (zbirBodova < 130 && zbirBodova > 125)
             {
                 Ocena = 7;
             }
-            else if (zbirBodova < 85 && zbirBodova > 75)
+            else if (zbirBodova < 155 && zbirBodova > 145)
             {
                 Ocena = 8;
             }
-            else if (zbirBodova < 95 && zbirBodova > 85)
+            else if (zbirBodova < 170 && zbirBodova > 155)
             {
                 Ocena = 9;
             }
