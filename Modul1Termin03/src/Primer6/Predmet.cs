@@ -10,10 +10,6 @@ namespace Modul1Termin03.Primer6
 {
     class Predmet
     {
-        public int Id { get; set; }
-        public string Naziv { get; set; }
-        public List<Student> Studenti { get; set; }
-
         public Predmet()
         {
             Studenti = new List<Student>();
@@ -45,6 +41,10 @@ namespace Modul1Termin03.Primer6
             Id = Int32.Parse(tokeni[0]);
             Naziv = tokeni[1];
         }
+
+        public int Id { get; set; }
+        public string Naziv { get; set; }
+        public List<Student> Studenti { get; set; }
 
         public String PreuzmiTekstualnuReprezentacijuKlase()
         {

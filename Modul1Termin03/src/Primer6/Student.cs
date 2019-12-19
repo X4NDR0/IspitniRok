@@ -9,14 +9,6 @@ namespace Modul1Termin03.Primer6
 {
     class Student
     {
-        public int Id { get; set; }
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
-        public string Grad { get; set; }
-        public string Indeks { get; set; }
-
-        public List<Predmet> Predmeti { get; set; }
-
         public Student()
         {
             Predmeti = new List<Predmet>();
@@ -41,6 +33,13 @@ namespace Modul1Termin03.Primer6
             this.Predmeti = predmeti;
         }
 
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Grad { get; set; }
+        public string Indeks { get; set; }
+
+        public List<Predmet> Predmeti { get; set; }
         public Student(String tekst)
         {
             String[] tokeni = tekst.Split(',');

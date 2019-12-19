@@ -5,16 +5,6 @@ namespace Modul1Termin03.Primer6
 {
     class IspitnaPrijava
     {
-        public Student Student;
-        public Predmet Predmet;
-        public IspitniRok IspitniRok;
-
-        public int StudentID;
-        public int PredmetID;
-        public int IspitniRokID;
-        public int BrojBodovaTeorija;
-        public int BrojBodovaZadaci;
-        public int Ocena;
 
         public IspitnaPrijava()
         {
@@ -59,10 +49,21 @@ namespace Modul1Termin03.Primer6
             this.BrojBodovaZadaci = brojBodovaZadaci;
         }
 
+        public Student Student;
+        public Predmet Predmet;
+        public IspitniRok IspitniRok;
+
+        public int StudentID;
+        public int PredmetID;
+        public int IspitniRokID;
+        public int BrojBodovaTeorija;
+        public int BrojBodovaZadaci;
+        public int Ocena;
+
         public void IzracunajOcenu()
         {
             int zbirBodova = (BrojBodovaTeorija + BrojBodovaZadaci);
-            if (zbirBodova < 100)
+            if (zbirBodova <= 100 && zbirBodova > 1)
             {
                 Ocena = 5;
             }
@@ -78,7 +79,7 @@ namespace Modul1Termin03.Primer6
             {
                 Ocena = 8;
             }
-            else if (zbirBodova >= 155 && zbirBodova < 170)
+            else if (zbirBodova >= 155 && zbirBodova < 174)
             {
                 Ocena = 9;
             }

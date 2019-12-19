@@ -12,7 +12,7 @@ namespace Modul1Termin03.Primer6
         public static List<IspitniRok> listaIspitnihRokova = new List<IspitniRok>();
         public static List<IspitnaPrijava> listaIspitnihPrijava = new List<IspitnaPrijava>();
         public static List<Predmet> listaPredmeta = new List<Predmet>();
-        public static string filePath;
+        public static string FilePath;
         public static void Main(String[] args)
         {
             CheckPerson();
@@ -56,14 +56,14 @@ namespace Modul1Termin03.Primer6
             Console.ReadKey();
         }
 
-        public static void IzracunajProsek(int teorija, int zadaci)
+        private static void IzracunajProsek(int teorija, int zadaci)
         {
             double rezultat = teorija + zadaci;
             double help = rezultat / 2;
             Console.WriteLine("Prosecan broj bodova je:" + help);
         }
 
-        public static void IspisiStudente(List<Student> lista)
+        private static void IspisiStudente(List<Student> lista)
         {
             foreach (Student student in lista)
             {
@@ -71,7 +71,7 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void IspisiIspite(List<IspitniRok> lista)
+        private static void IspisiIspite(List<IspitniRok> lista)
         {
             foreach (IspitniRok ispitniRok in lista)
             {
@@ -79,7 +79,7 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void IspisiPredmete(List<Predmet> lista)
+        private static void IspisiPredmete(List<Predmet> lista)
         {
             foreach (Predmet predmet in lista)
             {
@@ -87,9 +87,9 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void LoadStudents()
+        private static void LoadStudents()
         {
-            StreamReader srStudent = new StreamReader(filePath + "studenti.csv");
+            StreamReader srStudent = new StreamReader(FilePath + "studenti.csv");
             string studenti = srStudent.ReadToEnd();
             string[] studentSplit = studenti.Split('\n');
 
@@ -102,9 +102,14 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void LoadPredmete()
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Grad { get; set; }
+        public string Indeks { get; set; }
+        private static void LoadPredmete()
         {
-            StreamReader sr = new StreamReader(filePath + "predmeti.csv");
+            StreamReader sr = new StreamReader(FilePath + "predmeti.csv");
             string predmeti = sr.ReadToEnd();
             string[] predmetSplit = predmeti.Split('\n');
 
@@ -117,9 +122,9 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void LoadIspitnePrijave()
+        private static void LoadIspitnePrijave()
         {
-            StreamReader srip = new StreamReader(filePath + "ispitne_prijave.csv");
+            StreamReader srip = new StreamReader(FilePath + "ispitne_prijave.csv");
             string ispitnePrijave = srip.ReadToEnd();
             string[] ispitnePrij = ispitnePrijave.Split('\n');
 
@@ -132,9 +137,9 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public static void LoadIspitneRokove()
+        private static void LoadIspitneRokove()
         {
-            StreamReader srIr = new StreamReader(filePath + "ispitni_rokovi.csv");
+            StreamReader srIr = new StreamReader(FilePath + "ispitni_rokovi.csv");
             string ispitniRokovi = srIr.ReadToEnd();
 
             string[] ispitniRok = ispitniRokovi.Split('\n');
@@ -151,10 +156,10 @@ namespace Modul1Termin03.Primer6
         {
             if (WindowsIdentity.GetCurrent().Name.StartsWith("MILOSH"))
             {
-                filePath = AppConfig.Milos;
+                FilePath = AppConfig.Milos;
                 return;
             }
-            filePath = AppConfig.Aleksandar;
+            FilePath = AppConfig.Aleksandar;
         }
     }
 }

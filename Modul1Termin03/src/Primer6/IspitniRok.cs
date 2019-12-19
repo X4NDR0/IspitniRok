@@ -4,10 +4,6 @@ namespace Modul1Termin03.Primer6
 {
     class IspitniRok
     {
-        public int ID;
-        public string Naziv;
-        public DateTime Pocetak;
-        public DateTime Kraj;
 
         public IspitniRok()
         {
@@ -30,5 +26,10 @@ namespace Modul1Termin03.Primer6
                 Kraj = DateTime.Parse(splitter[3]);
             }
         }
+
+        public int ID;
+        public string Naziv;
+        public DateTime Pocetak;
+        public DateTime Kraj;
     }
 }
