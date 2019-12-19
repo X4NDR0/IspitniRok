@@ -101,12 +101,6 @@ namespace Modul1Termin03.Primer6
                 sviStudenti.Add(student);
             }
         }
-
-        public int Id { get; set; }
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
-        public string Grad { get; set; }
-        public string Indeks { get; set; }
         private static void LoadPredmete()
         {
             StreamReader sr = new StreamReader(FilePath + "predmeti.csv");
