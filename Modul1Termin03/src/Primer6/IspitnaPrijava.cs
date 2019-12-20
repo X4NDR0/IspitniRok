@@ -53,7 +53,7 @@ namespace Modul1Termin03.Primer6
         public Predmet Predmet;
         public IspitniRok IspitniRok;
 
-        public int StudentID;
+        public int StudentID; 
         public int PredmetID;
         public int IspitniRokID;
         public int BrojBodovaTeorija;

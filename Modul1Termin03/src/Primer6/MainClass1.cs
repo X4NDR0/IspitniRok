@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Principal;
 
 namespace Modul1Termin03.Primer6
@@ -38,16 +39,11 @@ namespace Modul1Termin03.Primer6
                 ispitnaPrijava.IzracunajOcenu();
             }
 
-            int zbir = 0;
-
-            foreach (IspitnaPrijava ispitnaPrijava1 in listaIspitnihPrijava)
-            {
-                zbir += ispitnaPrijava1.BrojBodovaTeorija + ispitnaPrijava1.BrojBodovaZadaci;
-            }
-
-            IzracunajProsek(zbir);
+            double result = Math.Round(listaIspitnihPrijava.Average(x => x.BrojBodovaTeorija + x.BrojBodovaZadaci));
 
             Console.WriteLine("Izracuvanja proseka");
+
+            Console.WriteLine(result);
 
             Console.WriteLine("******************************");
             sviStudenti.RemoveAt(2);
@@ -59,12 +55,6 @@ namespace Modul1Termin03.Primer6
             Console.WriteLine("Zavrsen rad sa listom");
 
             Console.ReadKey();
-        }
-
-        private static void IzracunajProsek(int zbir)
-        {
-            double rezultat = zbir / listaIspitnihPrijava.Count;
-            Console.WriteLine("Prosecan broj bodova je:" + rezultat);
         }
 
         private static void IspisiStudente(List<Student> lista)
@@ -88,6 +78,14 @@ namespace Modul1Termin03.Primer6
             foreach (Predmet predmet in lista)
             {
                 Console.WriteLine("ID:" + predmet.Id + " Naziv:" + predmet.Naziv);
+            }
+        }
+
+        public static void IspisiIspitnePrijave()
+        {
+            foreach (IspitnaPrijava isp in listaIspitnihPrijava)
+            {
+                Console.WriteLine("ID:" + isp.IspitniRok.ID + " Naziv:" + isp.IspitniRok.Naziv + " Pocetak:" + isp.IspitniRok.Pocetak + " Kraj:" + isp.IspitniRok.Kraj);
             }
         }
 
