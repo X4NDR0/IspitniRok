@@ -88,7 +88,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitnaPrijava isp in listaIspitnihPrijava)
             {
-                Console.WriteLine("Student ID:" + isp.StudentID + " Ime studenta:" + isp.Student.Ime + " Prezime studenta:" + isp.Student.Prezime + "\n" + "Predmet ID:" + isp.PredmetID + " Naziv predmeta:" + isp.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + isp.IspitniRokID + " Naziv ispitnog roka:" + isp.IspitniRok.Naziv + " Pocetak ispitnog roka:" + isp.IspitniRok.Pocetak + " Kraj ispitnog roka:" + isp.IspitniRok.Kraj);
+                Console.WriteLine("Student ID:" + isp.StudentID + " Ime studenta:" + isp.Student.Ime + " Prezime studenta:" + isp.Student.Prezime + "\n" + "Predmet ID:" + isp.PredmetID + " Naziv predmeta:" + isp.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + isp.IspitniRokID + "Pocetak:" + isp.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + isp.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + isp.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + isp.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + isp.BrojBodovaTeorija);
             }
         }
 
