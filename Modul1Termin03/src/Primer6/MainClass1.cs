@@ -13,6 +13,9 @@ namespace Modul1Termin03.Primer6
         public static List<IspitniRok> listaIspitnihRokova = new List<IspitniRok>();
         public static List<IspitnaPrijava> listaIspitnihPrijava = new List<IspitnaPrijava>();
         public static List<Predmet> listaPredmeta = new List<Predmet>();
+        public static List<Nastavnik> listaNastavnika = new List<Nastavnik>();
+        public static List<Pohadja> listaPohadjanja = new List<Pohadja>();
+        public static List<Predaje> listaPredaje = new List<Predaje>();
         public static string FilePath;
         public static void Main(String[] args)
         {
@@ -22,15 +25,21 @@ namespace Modul1Termin03.Primer6
             LoadPredmete();
             LoadIspitneRokove();
             LoadIspitnePrijave();
+            LoadNastavnike();
+            LoadPohadja();
+            LoadPredaja();
 
             sviStudenti.Insert(0, new Student(4, "Miloš ", "Sekulić", "Beograd", "E1 01/2016"));
             IspisiStudente(sviStudenti);
 
+            Console.WriteLine("-----------------------------------------");
             Console.WriteLine("Ispis ispitnih rokova:");
             IspisiIspite(listaIspitnihRokova);
+            Console.WriteLine("-----------------------------------------");
 
             Console.WriteLine("Ispis predmeta:");
             IspisiPredmete(listaPredmeta);
+            Console.WriteLine("-----------------------------------------");
 
             Console.WriteLine("Izracunavanje ocene");
 
@@ -38,17 +47,32 @@ namespace Modul1Termin03.Primer6
             {
                 ispitnaPrijava.IzracunajOcenu();
             }
+            Console.WriteLine("-----------------------------------------");
 
             double result = Math.Round(listaIspitnihPrijava.Average(x => x.BrojBodovaTeorija + x.BrojBodovaZadaci));
 
-            Console.WriteLine("Izracuvanja proseka");
+            Console.WriteLine("Izracuvanja proseka:" + result);
 
-            Console.WriteLine(result);
+            Console.WriteLine("-----------------------------------------");
 
             Console.WriteLine("Ispis ispitnih prijava");
             IspisiIspitnePrijave();
 
-            Console.WriteLine("******************************");
+            Console.WriteLine("Ispis pohadjanja");
+            IspisiPohadjanja();
+
+            Console.WriteLine("-----------------------------------------");
+
+            Console.WriteLine("Ispis svih nastavnika");
+            IspisiNastavnike();
+
+            Console.WriteLine("-----------------------------------------");
+
+            Console.WriteLine("Ispis predaja");
+            IspisiPredaje();
+
+            Console.WriteLine("-----------------------------------------");
+
             sviStudenti.RemoveAt(2);
             Console.WriteLine("Broj studenata je:" + sviStudenti.Count);
 
@@ -89,6 +113,31 @@ namespace Modul1Termin03.Primer6
             foreach (IspitnaPrijava isp in listaIspitnihPrijava)
             {
                 Console.WriteLine("Student ID:" + isp.StudentID + " Ime studenta:" + isp.Student.Ime + " Prezime studenta:" + isp.Student.Prezime + "\n" + "Predmet ID:" + isp.PredmetID + " Naziv predmeta:" + isp.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + isp.IspitniRokID + "Pocetak:" + isp.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + isp.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + isp.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + isp.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + isp.BrojBodovaTeorija);
+                Console.WriteLine("-----------------------------------------");
+            }
+        }
+
+        public static void IspisiPohadjanja()
+        {
+            foreach (Pohadja pohadja in listaPohadjanja)
+            {
+                Console.WriteLine("Student sa id-om:" + pohadja.StudentID + " pohadja predmet pod ID-om:" + pohadja.PredmetID);
+            }
+        }
+
+        public static void IspisiNastavnike()
+        {
+            foreach (Nastavnik nastavnik in listaNastavnika)
+            {
+                Console.WriteLine("ID:" + nastavnik.NastavnikID + " Ime:" + nastavnik.Ime + " Prezime:" + nastavnik.Prezime + " Znanje:" + nastavnik.Znanje);
+            }
+        }
+
+        public static void IspisiPredaje()
+        {
+            foreach (Predaje predaje in listaPredaje)
+            {
+                Console.WriteLine("Nastavnik sa ID-om:" + predaje.NastavnikID + " predaje predmet pod ID-om:" + predaje.PredmetID);
             }
         }
 
@@ -148,6 +197,51 @@ namespace Modul1Termin03.Primer6
             {
                 ispitniRokObject = new IspitniRok(ispitniRok[i]);
                 listaIspitnihRokova.Add(ispitniRokObject);
+            }
+        }
+
+        public static void LoadNastavnike()
+        {
+            StreamReader sr = new StreamReader(FilePath + "nastavnici.csv");
+            string nastavnici = sr.ReadToEnd();
+
+            string[] nastavnik = nastavnici.Split('\n');
+            Nastavnik nastavnikObject = null;
+
+            for (int i = 0; i < nastavnik.Length; i++)
+            {
+                nastavnikObject = new Nastavnik(nastavnik[i]);
+                listaNastavnika.Add(nastavnikObject);
+            }
+        }
+
+        public static void LoadPohadja()
+        {
+            StreamReader sr = new StreamReader(FilePath + "pohadja.csv");
+            string info = sr.ReadToEnd();
+            string[] pohadja = info.Split('\n');
+
+            Pohadja pohadjaObject = null;
+
+            for (int i = 0; i < pohadja.Length; i++)
+            {
+                pohadjaObject = new Pohadja(pohadja[i]);
+                listaPohadjanja.Add(pohadjaObject);
+            }
+        }
+
+        public static void LoadPredaja()
+        {
+            StreamReader sr = new StreamReader(FilePath + "predaje.csv");
+            string text = sr.ReadToEnd();
+            string[] predaje = text.Split('\n');
+
+            Predaje predajeObject = null;
+
+            for (int i = 0; i < predaje.Length; i++)
+            {
+                predajeObject = new Predaje(predaje[i]);
+                listaPredaje.Add(predajeObject);
             }
         }
 

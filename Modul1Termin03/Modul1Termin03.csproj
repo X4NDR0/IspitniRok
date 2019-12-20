@@ -77,6 +77,9 @@
     <Compile Include="src\Primer6\IspitnaPrijava.cs" />
     <Compile Include="src\Primer6\IspitniRok.cs" />
     <Compile Include="src\Primer6\MainClass1.cs" />
+    <Compile Include="src\Primer6\Nastavnik.cs" />
+    <Compile Include="src\Primer6\Pohadja.cs" />
+    <Compile Include="src\Primer6\Predaje.cs" />
     <Compile Include="src\Primer6\Predmet.cs" />
     <Compile Include="src\Primer6\Student.cs" />
     <Compile Include="src\Primer7\MainClass1.cs" />
