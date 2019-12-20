@@ -45,6 +45,9 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine(result);
 
+            Console.WriteLine("Ispis ispitnih prijava");
+            IspisiIspitnePrijave();
+
             Console.WriteLine("******************************");
             sviStudenti.RemoveAt(2);
             Console.WriteLine("Broj studenata je:" + sviStudenti.Count);
@@ -85,7 +88,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitnaPrijava isp in listaIspitnihPrijava)
             {
-                Console.WriteLine("ID:" + isp.IspitniRok.ID + " Naziv:" + isp.IspitniRok.Naziv + " Pocetak:" + isp.IspitniRok.Pocetak + " Kraj:" + isp.IspitniRok.Kraj);
+                Console.WriteLine("Student ID:" + isp.StudentID + " Ime studenta:" + isp.Student.Ime + " Prezime studenta:" + isp.Student.Prezime + "\n" + "Predmet ID:" + isp.PredmetID + " Naziv predmeta:" + isp.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + isp.IspitniRokID + " Naziv ispitnog roka:" + isp.IspitniRok.Naziv + " Pocetak ispitnog roka:" + isp.IspitniRok.Pocetak + " Kraj ispitnog roka:" + isp.IspitniRok.Kraj);
             }
         }
 
