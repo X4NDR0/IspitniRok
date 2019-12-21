@@ -234,7 +234,10 @@ namespace Modul1Termin03.Primer6
         {
             StreamReader sr = new StreamReader(FilePath + "predaje.csv");
             string text = sr.ReadToEnd();
+
             string[] predaje = text.Split('\n');
+
+            //string[] predaje = text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             Predaje predajeObject = null;
 
