@@ -96,7 +96,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitniRok ispitniRok in lista)
             {
-                Console.WriteLine("ID:" + ispitniRok.ID + " Naziv:" + ispitniRok.Naziv + " Pocetak:" + ispitniRok.Pocetak + " Kraj:" + ispitniRok.Kraj);
+                Console.WriteLine("ID:" + ispitniRok.ID + " Naziv:" + ispitniRok.Naziv + " Pocetak:" + ispitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitniRok.Kraj.ToString("dd/MM/yyyy"));
             }
         }
 
@@ -121,7 +121,8 @@ namespace Modul1Termin03.Primer6
         {
             foreach (Pohadja pohadja in listaPohadjanja)
             {
-                Console.WriteLine("Student sa id-om:" + pohadja.StudentID + " pohadja predmet pod ID-om:" + pohadja.PredmetID);
+                //Console.WriteLine("Student sa id-om:" + pohadja.StudentID + " pohadja predmet pod ID-om:" + pohadja.PredmetID);
+                Console.WriteLine("Student sa imenom:" + pohadja.Student.Ime + " " + pohadja.Student.Prezime + " pohadja predmet:" + pohadja.Predmet.Naziv);
             }
         }
 
@@ -137,7 +138,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (Predaje predaje in listaPredaje)
             {
-                Console.WriteLine("Nastavnik sa ID-om:" + predaje.NastavnikID + " predaje predmet pod ID-om:" + predaje.PredmetID);
+                Console.WriteLine("Nastavnik sa imenom " + predaje.Nastavnik.Ime + " " + predaje.Nastavnik.Prezime + " predaje predmet:" + predaje.Predmet.Naziv);
             }
         }
 
@@ -235,9 +236,7 @@ namespace Modul1Termin03.Primer6
             StreamReader sr = new StreamReader(FilePath + "predaje.csv");
             string text = sr.ReadToEnd();
 
-            string[] predaje = text.Split('\n');
-
-            //string[] predaje = text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] predaje = text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             Predaje predajeObject = null;
 
