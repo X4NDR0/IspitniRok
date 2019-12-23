@@ -110,9 +110,9 @@ namespace Modul1Termin03.Primer6
 
         public static void IspisiIspitnePrijave()
         {
-            foreach (IspitnaPrijava isp in listaIspitnihPrijava)
+            foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
-                Console.WriteLine("Student ID:" + isp.StudentID + " Ime studenta:" + isp.Student.Ime + " Prezime studenta:" + isp.Student.Prezime + "\n" + "Predmet ID:" + isp.PredmetID + " Naziv predmeta:" + isp.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + isp.IspitniRokID + "Pocetak:" + isp.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + isp.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + isp.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + isp.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + isp.BrojBodovaTeorija);
+                Console.WriteLine("Student ID:" + ispitnaPrijava.StudentID + " Ime studenta:" + ispitnaPrijava.Student.Ime + " Prezime studenta:" + ispitnaPrijava.Student.Prezime + "\n" + "Predmet ID:" + ispitnaPrijava.PredmetID + " Naziv predmeta:" + ispitnaPrijava.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + ispitnaPrijava.IspitniRokID + "Pocetak:" + ispitnaPrijava.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitnaPrijava.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + ispitnaPrijava.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + ispitnaPrijava.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + ispitnaPrijava.BrojBodovaTeorija);
                 Console.WriteLine("-----------------------------------------");
             }
         }
@@ -121,7 +121,6 @@ namespace Modul1Termin03.Primer6
         {
             foreach (Pohadja pohadja in listaPohadjanja)
             {
-                //Console.WriteLine("Student sa id-om:" + pohadja.StudentID + " pohadja predmet pod ID-om:" + pohadja.PredmetID);
                 Console.WriteLine("Student sa imenom:" + pohadja.Student.Ime + " " + pohadja.Student.Prezime + " pohadja predmet:" + pohadja.Predmet.Naziv);
             }
         }
@@ -144,9 +143,9 @@ namespace Modul1Termin03.Primer6
 
         private static void LoadStudents()
         {
-            StreamReader srStudent = new StreamReader(FilePath + "studenti.csv");
-            string studenti = srStudent.ReadToEnd();
-            string[] studentSplit = studenti.Split('\n');
+            StreamReader citacFajlova = new StreamReader(FilePath + "studenti.csv");
+            string podaci = citacFajlova.ReadToEnd();
+            string[] studentSplit = podaci.Split('\n');
 
             Student student = null;
 
@@ -158,9 +157,9 @@ namespace Modul1Termin03.Primer6
         }
         private static void LoadPredmete()
         {
-            StreamReader sr = new StreamReader(FilePath + "predmeti.csv");
-            string predmeti = sr.ReadToEnd();
-            string[] predmetSplit = predmeti.Split('\n');
+            StreamReader citacFajlova = new StreamReader(FilePath + "predmeti.csv");
+            string podaci = citacFajlova.ReadToEnd();
+            string[] predmetSplit = podaci.Split('\n');
 
             Predmet predmet = null;
 
@@ -173,25 +172,25 @@ namespace Modul1Termin03.Primer6
 
         private static void LoadIspitnePrijave()
         {
-            StreamReader srip = new StreamReader(FilePath + "ispitne_prijave.csv");
-            string ispitnePrijave = srip.ReadToEnd();
-            string[] ispitnePrij = ispitnePrijave.Split('\n');
+            StreamReader citacFajlova = new StreamReader(FilePath + "ispitne_prijave.csv");
+            string podaci = citacFajlova.ReadToEnd();
+            string[] ispitnePrijave = podaci.Split('\n');
 
-            IspitnaPrijava ispitnePrijaveObject = null;
+            IspitnaPrijava ispitnaPrijavaObject = null;
 
-            for (int i = 0; i < ispitnePrij.Length; i++)
+            for (int i = 0; i < ispitnePrijave.Length; i++)
             {
-                ispitnePrijaveObject = new IspitnaPrijava(ispitnePrij[i]);
-                listaIspitnihPrijava.Add(ispitnePrijaveObject);
+                ispitnaPrijavaObject = new IspitnaPrijava(ispitnePrijave[i],sviStudenti,listaPredmeta,listaIspitnihRokova);
+                listaIspitnihPrijava.Add(ispitnaPrijavaObject);
             }
         }
 
         private static void LoadIspitneRokove()
         {
-            StreamReader srIr = new StreamReader(FilePath + "ispitni_rokovi.csv");
-            string ispitniRokovi = srIr.ReadToEnd();
+            StreamReader citacFajlova = new StreamReader(FilePath + "ispitni_rokovi.csv");
+            string podaci = citacFajlova.ReadToEnd();
 
-            string[] ispitniRok = ispitniRokovi.Split('\n');
+            string[] ispitniRok = podaci.Split('\n');
             IspitniRok ispitniRokObject = null;
 
             for (int i = 0; i < ispitniRok.Length; i++)
@@ -203,46 +202,46 @@ namespace Modul1Termin03.Primer6
 
         public static void LoadNastavnike()
         {
-            StreamReader sr = new StreamReader(FilePath + "nastavnici.csv");
-            string nastavnici = sr.ReadToEnd();
+            StreamReader citacFajlova = new StreamReader(FilePath + "nastavnici.csv");
+            string podaci = citacFajlova.ReadToEnd();
 
-            string[] nastavnik = nastavnici.Split('\n');
+            string[] nastavnici = podaci.Split('\n');
             Nastavnik nastavnikObject = null;
 
-            for (int i = 0; i < nastavnik.Length; i++)
+            for (int i = 0; i < nastavnici.Length; i++)
             {
-                nastavnikObject = new Nastavnik(nastavnik[i]);
+                nastavnikObject = new Nastavnik(nastavnici[i]);
                 listaNastavnika.Add(nastavnikObject);
             }
         }
 
         public static void LoadPohadja()
         {
-            StreamReader sr = new StreamReader(FilePath + "pohadja.csv");
-            string info = sr.ReadToEnd();
-            string[] pohadja = info.Split('\n');
+            StreamReader citacFajlova = new StreamReader(FilePath + "pohadja.csv");
+            string podaci = citacFajlova.ReadToEnd();
+            string[] pohadja = podaci.Split('\n');
 
             Pohadja pohadjaObject = null;
 
             for (int i = 0; i < pohadja.Length; i++)
             {
-                pohadjaObject = new Pohadja(pohadja[i]);
+                pohadjaObject = new Pohadja(pohadja[i],listaPredmeta,sviStudenti);
                 listaPohadjanja.Add(pohadjaObject);
             }
         }
 
         public static void LoadPredaja()
         {
-            StreamReader sr = new StreamReader(FilePath + "predaje.csv");
-            string text = sr.ReadToEnd();
+            StreamReader citacFajlova = new StreamReader(FilePath + "predaje.csv");
+            string podaci = citacFajlova.ReadToEnd();
 
-            string[] predaje = text.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] predaje = podaci.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             Predaje predajeObject = null;
 
             for (int i = 0; i < predaje.Length; i++)
             {
-                predajeObject = new Predaje(predaje[i]);
+                predajeObject = new Predaje(predaje[i],listaNastavnika,listaPredmeta);
                 listaPredaje.Add(predajeObject);
             }
         }

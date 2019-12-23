@@ -1,19 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Modul1Termin03.Primer6
 {
     class IspitnaPrijava
     {
-
-        public IspitnaPrijava()
-        {
-            Student = new Student();
-            Predmet = new Predmet();
-            IspitniRok = new IspitniRok();
-        }
-
-        public IspitnaPrijava(string numbers)
+        public IspitnaPrijava(string numbers,List<Student> listaStudenata,List<Predmet> listaPredmeta,List<IspitniRok> listaIspitnihRokova)
         {
             string[] manyID = numbers.Split(',');
 
@@ -30,9 +23,9 @@ namespace Modul1Termin03.Primer6
                 BrojBodovaTeorija = Int32.Parse(manyID[3]);
                 BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
-                Student FindMe = MainClass1.sviStudenti.Where(x => x.Id == StudentID).FirstOrDefault();
-                Predmet FindMe2 = MainClass1.listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
-                IspitniRok FindMe3 = MainClass1.listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
+                Student FindMe = listaStudenata.Where(x => x.Id == StudentID).FirstOrDefault();
+                Predmet FindMe2 = listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
+                IspitniRok FindMe3 = listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
 
                 Student = FindMe;
                 Predmet = FindMe2;
