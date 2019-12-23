@@ -9,11 +9,6 @@ namespace Modul1Termin03.Primer6
 {
     class Student
     {
-        public Student()
-        {
-            Predmeti = new List<Predmet>();
-        }
-
         public Student(int id, String ime, String prezime, String grad, String indeks)
         {
             this.Id = id;

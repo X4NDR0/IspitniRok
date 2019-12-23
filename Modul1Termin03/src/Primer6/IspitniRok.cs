@@ -5,11 +5,6 @@ namespace Modul1Termin03.Primer6
     class IspitniRok
     {
 
-        public IspitniRok()
-        {
-
-        }
-
         public IspitniRok(String data)
         {
             string[] splitter = data.Split(',');

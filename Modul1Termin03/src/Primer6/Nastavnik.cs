@@ -8,10 +8,6 @@ namespace Modul1Termin03.Primer6
 {
     class Nastavnik
     {
-        public Nastavnik()
-        {
-
-        }
         public Nastavnik(string podaci)
         {
             string[] splitter = podaci.Split(',');

@@ -10,10 +10,6 @@ namespace Modul1Termin03.Primer6
 {
     class Predmet
     {
-        public Predmet()
-        {
-            Studenti = new List<Student>();
-        }
 
         public Predmet(int id, String naziv)
         {
