@@ -33,15 +33,6 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public IspitnaPrijava(Student student, Predmet predmet, IspitniRok ispitniRok, int brojBodovaZadaci, int brojBodovaTeorija)
-        {
-            this.Student = student;
-            this.Predmet = predmet;
-            this.IspitniRok = ispitniRok;
-            this.BrojBodovaTeorija = brojBodovaTeorija;
-            this.BrojBodovaZadaci = brojBodovaZadaci;
-        }
-
         public Student Student;
         public Predmet Predmet;
         public IspitniRok IspitniRok;

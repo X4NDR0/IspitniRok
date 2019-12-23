@@ -26,12 +26,6 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public Predaje(Nastavnik Nastavnik,Predmet Predmet)
-        {
-            this.Nastavnik = Nastavnik;
-            this.Predmet = Predmet;
-        }
-
         public Nastavnik Nastavnik;
         public Predmet Predmet;
 

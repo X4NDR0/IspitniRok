@@ -16,18 +16,8 @@ namespace Modul1Termin03.Primer6
             this.Prezime = prezime;
             this.Grad = grad;
             this.Indeks = indeks;
-        }
 
-        public Student(int id, String ime, String prezime, String grad, String indeks, List<Predmet> predmeti)
-        {
-            this.Id = id;
-            this.Ime = ime;
-            this.Prezime = prezime;
-            this.Grad = grad;
-            this.Indeks = indeks;
-            this.Predmeti = predmeti;
         }
-
         public int Id { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }

@@ -28,12 +28,6 @@ namespace Modul1Termin03.Primer6
             }
         }
 
-        public Pohadja(Student Student, Predmet Predmet)
-        {
-            this.Student = Student;
-            this.Predmet = Predmet;
-        }
-
         public Student Student;
         public Predmet Predmet;
 

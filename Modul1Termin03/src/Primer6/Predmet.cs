@@ -11,19 +11,6 @@ namespace Modul1Termin03.Primer6
     class Predmet
     {
 
-        public Predmet(int id, String naziv)
-        {
-            this.Id = id;
-            this.Naziv = naziv;
-        }
-
-        public Predmet(int id, String naziv, List<Student> studenti)
-        {
-            this.Id = id;
-            this.Naziv = naziv;
-            this.Studenti = studenti;
-        }
-
         public Predmet(String tekst)
         {
             String[] tokeni = tekst.Split(',');
