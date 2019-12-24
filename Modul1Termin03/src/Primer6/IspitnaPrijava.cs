@@ -6,7 +6,7 @@ namespace Modul1Termin03.Primer6
 {
     class IspitnaPrijava
     {
-        public IspitnaPrijava(string numbers,List<Student> listaStudenata,List<Predmet> listaPredmeta,List<IspitniRok> listaIspitnihRokova)
+        public IspitnaPrijava(string numbers, List<Student> listaStudenata, List<Predmet> listaPredmeta, List<IspitniRok> listaIspitnihRokova)
         {
             string[] manyID = numbers.Split(',');
 
@@ -23,13 +23,13 @@ namespace Modul1Termin03.Primer6
                 BrojBodovaTeorija = Int32.Parse(manyID[3]);
                 BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
-                Student FindMe = listaStudenata.Where(x => x.Id == StudentID).FirstOrDefault();
-                Predmet FindMe2 = listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
-                IspitniRok FindMe3 = listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
+                Student FindStudent = listaStudenata.Where(x => x.Id == StudentID).FirstOrDefault();
+                Predmet FindPredmet = listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
+                IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
 
-                Student = FindMe;
-                Predmet = FindMe2;
-                IspitniRok = FindMe3;
+                Student = FindStudent;
+                Predmet = FindPredmet;
+                IspitniRok = FindIspitniRok;
             }
         }
 
@@ -37,7 +37,7 @@ namespace Modul1Termin03.Primer6
         public Predmet Predmet;
         public IspitniRok IspitniRok;
 
-        public int StudentID; 
+        public int StudentID;
         public int PredmetID;
         public int IspitniRokID;
         public int BrojBodovaTeorija;

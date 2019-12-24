@@ -41,7 +41,7 @@ namespace Modul1Termin03.Primer6
             IspisiPredmete(listaPredmeta);
             Console.WriteLine("-----------------------------------------");
 
-            Console.WriteLine("Izracunavanje ocene");
+            Console.WriteLine("Bodovi pretvoreni u ocenu:");
 
             foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
