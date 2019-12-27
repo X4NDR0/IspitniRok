@@ -81,6 +81,11 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine("Zavrsen rad sa listom");
 
+            foreach (IspitnaPrijava ispitnaPrijavaa in listaIspitnihPrijava)
+            {
+                ispitnaPrijavaa.ToFileString(listaIspitnihPrijava);
+            }
+
             Console.ReadKey();
         }
 
@@ -112,7 +117,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
-                Console.WriteLine("Student ID:" + ispitnaPrijava.StudentID + " Ime studenta:" + ispitnaPrijava.Student.Ime + " Prezime studenta:" + ispitnaPrijava.Student.Prezime + "\n" + "Predmet ID:" + ispitnaPrijava.PredmetID + " Naziv predmeta:" + ispitnaPrijava.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + ispitnaPrijava.IspitniRokID + "Pocetak:" + ispitnaPrijava.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitnaPrijava.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + ispitnaPrijava.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + ispitnaPrijava.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + ispitnaPrijava.BrojBodovaTeorija);
+                Console.WriteLine("Student ID:" + ispitnaPrijava.Student.Id + " Ime studenta:" + ispitnaPrijava.Student.Ime + " Prezime studenta:" + ispitnaPrijava.Student.Prezime + "\n" + "Predmet ID:" + ispitnaPrijava.Predmet.Id  + " Naziv predmeta:" + ispitnaPrijava.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + ispitnaPrijava.IspitniRok.ID + "Pocetak:" + ispitnaPrijava.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitnaPrijava.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + ispitnaPrijava.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + ispitnaPrijava.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + ispitnaPrijava.BrojBodovaTeorija);
                 Console.WriteLine("-----------------------------------------");
             }
         }

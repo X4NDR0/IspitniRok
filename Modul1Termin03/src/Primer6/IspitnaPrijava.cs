@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 namespace Modul1Termin03.Primer6
 {
     class IspitnaPrijava
     {
+        public IspitnaPrijava()
+        {
+
+        }
         public IspitnaPrijava(string numbers, List<Student> listaStudenata, List<Predmet> listaPredmeta, List<IspitniRok> listaIspitnihRokova)
         {
             string[] manyID = numbers.Split(',');
@@ -17,15 +22,15 @@ namespace Modul1Termin03.Primer6
             }
             else
             {
-                StudentID = Int32.Parse(manyID[0]);
-                PredmetID = Int32.Parse(manyID[1]);
-                IspitniRokID = Int32.Parse(manyID[2]);
+                Student.Id = Int32.Parse(manyID[0]);
+                Predmet.Id = Int32.Parse(manyID[1]);
+                Student.Id = Int32.Parse(manyID[2]);
                 BrojBodovaTeorija = Int32.Parse(manyID[3]);
                 BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
-                Student FindStudent = listaStudenata.Where(x => x.Id == StudentID).FirstOrDefault();
-                Predmet FindPredmet = listaPredmeta.Where(x => x.Id == PredmetID).FirstOrDefault();
-                IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRokID).FirstOrDefault();
+                Student FindStudent = listaStudenata.Where(x => x.Id == Student.Id).FirstOrDefault();
+                Predmet FindPredmet = listaPredmeta.Where(x => x.Id == Predmet.Id).FirstOrDefault();
+                IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRok.ID).FirstOrDefault();
 
                 Student = FindStudent;
                 Predmet = FindPredmet;
@@ -37,9 +42,6 @@ namespace Modul1Termin03.Primer6
         public Predmet Predmet;
         public IspitniRok IspitniRok;
 
-        public int StudentID;
-        public int PredmetID;
-        public int IspitniRokID;
         public int BrojBodovaTeorija;
         public int BrojBodovaZadaci;
         public int Ocena;
@@ -71,6 +73,22 @@ namespace Modul1Termin03.Primer6
             {
                 Ocena = 10;
             }
+        }
+
+        public string PreuzmiTekstualnuReprezentacijuKlase()
+        {
+            string text = Student.Id + "," + Predmet.Id + "," + IspitniRok.ID + "," + BrojBodovaTeorija + "," + BrojBodovaZadaci;
+            return text;
+        }
+
+        public void ToFileString(List<IspitnaPrijava> lista)
+        {
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\text.txt");
+            foreach (IspitnaPrijava ispitnaPrijava in lista)
+            {
+                recorder.Write(ispitnaPrijava.PreuzmiTekstualnuReprezentacijuKlase() + Environment.NewLine);
+            }
+            recorder.Close();
         }
 
     }
