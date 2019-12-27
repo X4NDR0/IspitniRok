@@ -11,6 +11,7 @@ namespace Modul1Termin03.Primer6
         {
 
         }
+
         public IspitnaPrijava(string numbers, List<Student> listaStudenata, List<Predmet> listaPredmeta, List<IspitniRok> listaIspitnihRokova)
         {
             string[] manyID = numbers.Split(',');
@@ -22,19 +23,32 @@ namespace Modul1Termin03.Primer6
             }
             else
             {
-                Student.Id = Int32.Parse(manyID[0]);
-                Predmet.Id = Int32.Parse(manyID[1]);
-                Student.Id = Int32.Parse(manyID[2]);
-                BrojBodovaTeorija = Int32.Parse(manyID[3]);
-                BrojBodovaZadaci = Int32.Parse(manyID[4]);
+                //before
+                //Student.Id = Int32.Parse(manyID[0]);
+                //Predmet.Id = Int32.Parse(manyID[1]);
+                //Student.Id = Int32.Parse(manyID[2]);
+                //BrojBodovaTeorija = Int32.Parse(manyID[3]);
+                //BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
-                Student FindStudent = listaStudenata.Where(x => x.Id == Student.Id).FirstOrDefault();
-                Predmet FindPredmet = listaPredmeta.Where(x => x.Id == Predmet.Id).FirstOrDefault();
-                IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRok.ID).FirstOrDefault();
+                //Student FindStudent = listaStudenata.Where(x => x.Id == Student.Id).FirstOrDefault();
+                //Predmet FindPredmet = listaPredmeta.Where(x => x.Id == Predmet.Id).FirstOrDefault();
+                //IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRok.ID).FirstOrDefault();
 
-                Student = FindStudent;
-                Predmet = FindPredmet;
-                IspitniRok = FindIspitniRok;
+                //Student = FindStudent;
+                //Predmet = FindPredmet;
+                //IspitniRok = FindIspitniRok;
+
+                //after
+
+                int studentId = Int32.Parse(manyID[0]);
+                int predmetId = Int32.Parse(manyID[1]);
+                int ispitniRokId = Int32.Parse(manyID[2]);
+                int brojBodovaTeorija = Int32.Parse(manyID[3]);
+                int brojBodovaZadaci = Int32.Parse(manyID[4]);
+
+                Student = listaStudenata.Where(x => x.Id == studentId).FirstOrDefault();
+                Predmet = listaPredmeta.Where(x => x.Id == predmetId).FirstOrDefault();
+                IspitniRok = listaIspitnihRokova.Where(x => x.ID == ispitniRokId).FirstOrDefault();
             }
         }
 
