@@ -23,28 +23,11 @@ namespace Modul1Termin03.Primer6
             }
             else
             {
-                //before
-                //Student.Id = Int32.Parse(manyID[0]);
-                //Predmet.Id = Int32.Parse(manyID[1]);
-                //Student.Id = Int32.Parse(manyID[2]);
-                //BrojBodovaTeorija = Int32.Parse(manyID[3]);
-                //BrojBodovaZadaci = Int32.Parse(manyID[4]);
-
-                //Student FindStudent = listaStudenata.Where(x => x.Id == Student.Id).FirstOrDefault();
-                //Predmet FindPredmet = listaPredmeta.Where(x => x.Id == Predmet.Id).FirstOrDefault();
-                //IspitniRok FindIspitniRok = listaIspitnihRokova.Where(x => x.ID == IspitniRok.ID).FirstOrDefault();
-
-                //Student = FindStudent;
-                //Predmet = FindPredmet;
-                //IspitniRok = FindIspitniRok;
-
-                //after
-
                 int studentId = Int32.Parse(manyID[0]);
                 int predmetId = Int32.Parse(manyID[1]);
                 int ispitniRokId = Int32.Parse(manyID[2]);
-                int brojBodovaTeorija = Int32.Parse(manyID[3]);
-                int brojBodovaZadaci = Int32.Parse(manyID[4]);
+                BrojBodovaTeorija = Int32.Parse(manyID[3]);
+                BrojBodovaZadaci = Int32.Parse(manyID[4]);
 
                 Student = listaStudenata.Where(x => x.Id == studentId).FirstOrDefault();
                 Predmet = listaPredmeta.Where(x => x.Id == predmetId).FirstOrDefault();
@@ -97,10 +80,10 @@ namespace Modul1Termin03.Primer6
 
         public void ToFileString(List<IspitnaPrijava> lista)
         {
-            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\text.txt");
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\ispitnePrijave.txt");
             foreach (IspitnaPrijava ispitnaPrijava in lista)
             {
-                recorder.Write(ispitnaPrijava.PreuzmiTekstualnuReprezentacijuKlase() + Environment.NewLine);
+                recorder.WriteLine(ispitnaPrijava.PreuzmiTekstualnuReprezentacijuKlase());
             }
             recorder.Close();
         }

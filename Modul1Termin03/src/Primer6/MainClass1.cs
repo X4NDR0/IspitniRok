@@ -81,10 +81,10 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine("Zavrsen rad sa listom");
 
-            foreach (IspitnaPrijava ispitnaPrijavaa in listaIspitnihPrijava)
-            {
-                ispitnaPrijavaa.ToFileString(listaIspitnihPrijava);
-            }
+            SaveIspitnePrijave();
+            SaveIspitneRokove();
+            SaveStudents();
+            
 
             Console.ReadKey();
         }
@@ -117,7 +117,7 @@ namespace Modul1Termin03.Primer6
         {
             foreach (IspitnaPrijava ispitnaPrijava in listaIspitnihPrijava)
             {
-                Console.WriteLine("Student ID:" + ispitnaPrijava.Student.Id + " Ime studenta:" + ispitnaPrijava.Student.Ime + " Prezime studenta:" + ispitnaPrijava.Student.Prezime + "\n" + "Predmet ID:" + ispitnaPrijava.Predmet.Id  + " Naziv predmeta:" + ispitnaPrijava.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + ispitnaPrijava.IspitniRok.ID + "Pocetak:" + ispitnaPrijava.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitnaPrijava.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + ispitnaPrijava.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + ispitnaPrijava.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + ispitnaPrijava.BrojBodovaTeorija);
+                Console.WriteLine("Student ID:" + ispitnaPrijava.Student.Id + " Ime studenta:" + ispitnaPrijava.Student.Ime + " Prezime studenta:" + ispitnaPrijava.Student.Prezime + "\n" + "Predmet ID:" + ispitnaPrijava.Predmet.Id + " Naziv predmeta:" + ispitnaPrijava.Predmet.Naziv + "\n" + "Ispitni Rok ID:" + ispitnaPrijava.IspitniRok.ID + "Pocetak:" + ispitnaPrijava.IspitniRok.Pocetak.ToString("dd/MM/yyyy") + " Kraj:" + ispitnaPrijava.IspitniRok.Kraj.ToString("dd/MM/yyyy") + " Naziv ispitnog roka:" + ispitnaPrijava.IspitniRok.Naziv + "\nBroj bodova na zadacima:" + ispitnaPrijava.BrojBodovaZadaci + "\nBroj bodova na teoriji:" + ispitnaPrijava.BrojBodovaTeorija);
                 Console.WriteLine("-----------------------------------------");
             }
         }
@@ -185,7 +185,7 @@ namespace Modul1Termin03.Primer6
 
             for (int i = 0; i < ispitnePrijave.Length; i++)
             {
-                ispitnaPrijavaObject = new IspitnaPrijava(ispitnePrijave[i],sviStudenti,listaPredmeta,listaIspitnihRokova);
+                ispitnaPrijavaObject = new IspitnaPrijava(ispitnePrijave[i], sviStudenti, listaPredmeta, listaIspitnihRokova);
                 listaIspitnihPrijava.Add(ispitnaPrijavaObject);
             }
         }
@@ -230,7 +230,7 @@ namespace Modul1Termin03.Primer6
 
             for (int i = 0; i < pohadja.Length; i++)
             {
-                pohadjaObject = new Pohadja(pohadja[i],listaPredmeta,sviStudenti);
+                pohadjaObject = new Pohadja(pohadja[i], listaPredmeta, sviStudenti);
                 listaPohadjanja.Add(pohadjaObject);
             }
         }
@@ -246,8 +246,32 @@ namespace Modul1Termin03.Primer6
 
             for (int i = 0; i < predaje.Length; i++)
             {
-                predajeObject = new Predaje(predaje[i],listaNastavnika,listaPredmeta);
+                predajeObject = new Predaje(predaje[i], listaNastavnika, listaPredmeta);
                 listaPredaje.Add(predajeObject);
+            }
+        }
+
+        public static void SaveIspitnePrijave()
+        {
+            foreach (IspitnaPrijava ispitnaPrijavaa in listaIspitnihPrijava)
+            {
+                ispitnaPrijavaa.ToFileString(listaIspitnihPrijava);
+            }
+        }
+
+        public static void SaveIspitneRokove()
+        {
+            foreach (IspitniRok ispitniRok in listaIspitnihRokova)
+            {
+                ispitniRok.ToFileString(listaIspitnihRokova);
+            }
+        }
+
+        public static void SaveStudents()
+        {
+            foreach (Student student in sviStudenti)
+            {
+                student.ToFileString(sviStudenti);
             }
         }
 

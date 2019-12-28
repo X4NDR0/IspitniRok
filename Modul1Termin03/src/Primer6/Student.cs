@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Modul1Termin03.Primer6
 {
@@ -49,6 +47,12 @@ namespace Modul1Termin03.Primer6
             return ispis;
         }
 
+        public string PreuzmiTekstualnuReprezentacijuKlaseZaUpis()
+        {
+            string ispis = Id + "," + Indeks + "," + Ime + "," + Prezime + "," + Grad;
+            return ispis;
+        }
+
         public string PreuzmiPotpunuTekstualnuReprezentacijuKlase()
         {
             StringBuilder sb = new StringBuilder("Student sa id " + Id + " čije je ime i prezime "
@@ -63,6 +67,16 @@ namespace Modul1Termin03.Primer6
                 }
             }
             return sb.ToString();
+        }
+
+        public void ToFileString(List<Student> lista)
+        {
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\studenti.txt");
+            foreach (Student student in lista)
+            {
+                recorder.WriteLine(student.PreuzmiTekstualnuReprezentacijuKlaseZaUpis());
+            }
+            recorder.Close();
         }
 
         public bool Isti(Student pr)
