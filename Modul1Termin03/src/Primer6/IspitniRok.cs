@@ -37,7 +37,7 @@ namespace Modul1Termin03.Primer6
 
         public void ToFileString(List<IspitniRok> lista)
         {
-            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\ispitniRok.txt");
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\IspitniRok.csv");
             foreach (IspitniRok ispitniRok in lista)
             {
                 recorder.WriteLine(ispitniRok.PreuzmiTekstualnuReprezentacijuKlase());

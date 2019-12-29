@@ -71,7 +71,7 @@ namespace Modul1Termin03.Primer6
 
         public void ToFileString(List<Student> lista)
         {
-            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\studenti.txt");
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\Studenti.csv");
             foreach (Student student in lista)
             {
                 recorder.WriteLine(student.PreuzmiTekstualnuReprezentacijuKlaseZaUpis());

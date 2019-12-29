@@ -80,7 +80,7 @@ namespace Modul1Termin03.Primer6
 
         public void ToFileString(List<IspitnaPrijava> lista)
         {
-            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\ispitnePrijave.txt");
+            StreamWriter recorder = new StreamWriter("C:\\Users\\XANDRO\\Desktop\\IspitnePrijave.csv");
             foreach (IspitnaPrijava ispitnaPrijava in lista)
             {
                 recorder.WriteLine(ispitnaPrijava.PreuzmiTekstualnuReprezentacijuKlase());
