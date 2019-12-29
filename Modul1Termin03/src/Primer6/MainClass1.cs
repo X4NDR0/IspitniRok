@@ -73,18 +73,18 @@ namespace Modul1Termin03.Primer6
 
             Console.WriteLine("-----------------------------------------");
 
+            SaveIspitnePrijave();
+            SaveIspitneRokove();
+            SaveStudents();
+
             sviStudenti.RemoveAt(2);
             Console.WriteLine("Broj studenata je:" + sviStudenti.Count);
 
             sviStudenti.Clear();
+
             Console.WriteLine("Broj studenata je:" + sviStudenti.Count);
 
             Console.WriteLine("Zavrsen rad sa listom");
-
-            SaveIspitnePrijave();
-            SaveIspitneRokove();
-            SaveStudents();
-            
 
             Console.ReadKey();
         }
